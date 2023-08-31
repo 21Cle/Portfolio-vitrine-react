@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import Contact from './pages/Contact';
+import Project4 from './pages/Project4';
+import Project3 from './pages/Project3';
+import Project2 from './pages/Project2';
+import Project1 from './pages/Project1';
+import NotFound from './pages/NotFound';
+import { AnimatePresence } from 'framer-motion';
+import English from './pages/English';
+import Intro from './pages/Intro';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <AnimatePresence>
+        <Routes>
+          <Route path="/" element={<Home />}/>
+          <Route path="/intro" element={<Intro />}/>
+          <Route path="/projet-1" element={<Project1 />}/>
+          <Route path="/projet-2" element={<Project2 />}/>
+          <Route path="/projet-3" element={<Project3 />}/>
+          <Route path="/projet-4" element={<Project4 />}/>
+          <Route path="/contact" element={<Contact />}/>
+          <Route path="/english" element={<English />}/>
+          <Route path="*" element={<NotFound />}/>
+        </Routes>
+      </AnimatePresence>
+    </BrowserRouter>
+
   );
-}
+};
 
 export default App;
